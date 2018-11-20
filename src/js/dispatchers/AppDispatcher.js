@@ -1,11 +1,14 @@
-import { Dispatcher } from 'flux';
-const flux = new Dispatcher();
+let Dispatcher = require('flux').Dispatcher;
+let assign = require('object-assign');
 
-export function register( callback ) {
-  return flux.register( callback )
+let AppDispatcher = assign(new Dispatcher()), {
+  handleViewAction() {
+    let payload = {
+      source: 'VIEW_ACTION',
+      action: action
+    }
+    this.dispatch(payload);
+  }
 }
 
-export function dispatch( actionType,  action) {
-  console.log(actionType);
-  flux.dispatch( actionType, action );
-}
+module.exports = AppDispatcher;
