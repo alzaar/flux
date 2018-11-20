@@ -1,11 +1,11 @@
 import { Dispatcher } from 'flux';
-
-const dispatcher = new Dispatcher();
+const flux = new Dispatcher();
 
 export function register( callback ) {
   return flux.register( callback )
 }
 
 export function dispatch( actionType,  action) {
+  console.log(actionType);
   flux.dispatch( actionType, action );
 }
